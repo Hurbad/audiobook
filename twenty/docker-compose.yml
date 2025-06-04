@@ -19,7 +19,8 @@ services:
       REDIS_URL: redis://twenty_redis_1:6379
       APP_SECRET: 2Gn5puuVCH0SI386E9RqOqHm0hGIAyrB
     env_file:
-      - ${APP_DATA_DIR}/.env
+      - path: ${APP_DATA_DIR}/.env
+        required: false
     depends_on:
       db:
         condition: service_healthy
@@ -42,7 +43,8 @@ services:
       DISABLE_DB_MIGRATIONS: "true"
       APP_SECRET: 2Gn5puuVCH0SI386E9RqOqHm0hGIAyrB
     env_file:
-      - ${APP_DATA_DIR}/.env
+      - path: ${APP_DATA_DIR}/.env
+        required: false
     depends_on:
       db:
         condition: service_healthy
